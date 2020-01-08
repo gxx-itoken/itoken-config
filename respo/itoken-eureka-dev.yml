@@ -28,7 +28,12 @@ eureka:
     hostname: localhost
   client:
     # false是服务端 true是客户端
+    # 生产环境要改成true，组Eureka集群，其实就是Eureka注册Eureka，互相注册
     registerWithEureka: false
     fetchRegistry: false
     serviceUrl:
       defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+      # 组集群要配置空间，不同的地址用逗号分隔
+      # http://ip:${server.port}/eureka/,
+      # http://ip:${server.port}/eureka/,
+      # http://ip:${server.port}/eureka/

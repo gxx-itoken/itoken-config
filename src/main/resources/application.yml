@@ -8,7 +8,7 @@ spring:
       server:
         git:
           # 配置 Git 仓库地址
-          uri: https://github.com/gxx-itoken/spring-cloud-config.git
+          uri: https://github.com/gxx-itoken/itoken-config.git
           # 配置仓库路径
           search-paths: respo
           # 账号密码
