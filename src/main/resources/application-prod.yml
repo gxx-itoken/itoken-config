@@ -1,0 +1,36 @@
+spring:
+  application:
+    name: itoken-config
+  cloud:
+    config:
+      label: master
+      server:
+        git:
+          uri: https://github.com/gxx-itoken/itoken-config.git
+          search-paths: respo
+          username: 40897970@qq.com
+          password: 401099.Gxx
+  zipkin:
+    base-url: http://192.168.231.129:9411
+  # 配置admin
+  boot:
+    admin:
+      client:
+        url: http://192.168.231.129:8084
+
+server:
+  port: 8888
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://192.168.231.129:8761/eureka/
+
+management:
+  endpoint:
+    health:
+      show-details: always
+  endpoints:
+    web:
+      exposure:
+        include: health,info
