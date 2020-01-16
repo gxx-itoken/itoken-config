@@ -9,7 +9,7 @@ spring:
         url: http://localhost:8084
 
 server:
-  port: 8761
+  port: 8761,8861,8961
 
 management:
   endpoint:
@@ -22,9 +22,11 @@ management:
 
 eureka:
   instance:
-    hostname: localhost
+    hostname: 192.168.231.129
   client:
     registerWithEureka: false
     fetchRegistry: false
     serviceUrl:
-      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+      defaultZone: http://${eureka.instance.hostname}:8761/eureka/,
+                   http://${eureka.instance.hostname}:8861/eureka/,
+                   http://${eureka.instance.hostname}:8961/eureka/,
