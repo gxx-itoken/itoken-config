@@ -22,9 +22,11 @@ management:
 
 eureka:
   instance:
-    hostname: 192.168.231.129
+    hostname: host
   client:
-    registerWithEureka: false
-    fetchRegistry: false
+    # 集群
+    registerWithEureka: true
+    # 同步注册
+    fetchRegistry: true
     serviceUrl:
       defaultZone: http://192.168.231.129:8761/eureka/,http://192.168.231.129:8861/eureka/,http://192.168.231.129:8961/eureka/
