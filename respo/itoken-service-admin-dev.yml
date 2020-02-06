@@ -1,0 +1,55 @@
+spring:
+  application:
+    # 服务名称
+    name: itoken-service-admin
+  # 服务链路追踪Zipkin客户端
+  zipkin:
+    base-url: http://localhost:9411
+  # 配置admin
+  boot:
+    admin:
+      client:
+        url: http://localhost:8084
+  datasource:
+    druid:
+      url: jdbc:mysql://106.13.231.13:3306/itoken-service-admin?useUnicode=true&characterEncoding=utf-8&useSSL=false
+      username: root
+      password: 123456
+      initial-size: 1
+      min-idle: 1
+      max-active: 20
+      test-on-borrow: true
+      # MySQL 8.x: com.mysql.cj.jdbc.Driver
+      driver-class-name: com.mysql.jdbc.Driver
+
+server:
+  port: 8501
+
+mybatis:
+  type-aliases-package: com.gxx.itoken.service.admin.domain
+  mapper-locations: classpath:mapper/*.xml
+
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    # false是服务端 true是客户端
+    # 生产环境要改成true，组Eureka集群，其实就是Eureka注册Eureka，互相注册
+    registerWithEureka: false
+    fetchRegistry: false
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+      # 组集群要配置空间，不同的地址用逗号分隔
+      # http://ip:${server.port}/eureka/,
+      # http://ip:${server.port}/eureka/,
+      # http://ip:${server.port}/eureka/
+
+# 监控服务健康
+management:
+  endpoint:
+    health:
+      show-details: always
+  endpoints:
+    web:
+      exposure:
+        include: health,info

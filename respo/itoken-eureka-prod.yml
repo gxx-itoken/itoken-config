@@ -22,7 +22,7 @@ management:
 
 eureka:
   instance:
-    hostname: host
+    hostname: localhost
   client:
     # 集群
     registerWithEureka: true

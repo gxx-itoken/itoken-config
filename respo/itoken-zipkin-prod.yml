@@ -6,6 +6,9 @@ spring:
     admin:
       client:
         url: http://192.168.231.129:8084
+  zipkin:
+    base-url: http://192.168.231.129:9411
+
 
 server:
   port: 9411
