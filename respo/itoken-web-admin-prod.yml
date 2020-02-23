@@ -1,0 +1,38 @@
+spring:
+  application:
+    # 服务名称
+    name: itoken-web-admin
+  # 服务链路追踪Zipkin客户端
+  zipkin:
+    base-url: http://192.168.231.129:9411
+  # 配置admin
+  boot:
+    admin:
+      client:
+        url: http://192.168.231.129:8084
+  thymeleaf:
+    cache: false # 开发时关闭缓存,不然没法看到实时页面
+    mode: HTML # 用非严格的 HTML
+    encoding: UTF-8
+    servlet:
+      content-type: text/html
+
+server:
+  port: 8601
+
+eureka:
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: http://192.168.231.129:8761/eureka/,http://192.168.231.129:8861/eureka/,http://192.168.231.129:8961/eureka/
+
+# 监控服务健康
+management:
+  endpoint:
+    health:
+      show-details: always
+  endpoints:
+    web:
+      exposure:
+        include: health,info
