@@ -1,0 +1,32 @@
+# 通用配置文件
+spring:
+  # 配置SpringBoot Admin
+  boot:
+    admin:
+      client:
+        url: http://localhost:8084
+  # 服务链路追踪Zipkin客户端
+  zipkin:
+    base-url: http://localhost:9411
+
+mybatis:
+  type-aliases-package: com.gxx.itoken.common.domain
+  mapper-locations: classpath:mapper/*.xml
+
+# 服务注册发现
+eureka:
+  client:
+    registerWithEureka: false
+    fetchRegistry: false
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+
+# 服务健康检查
+management:
+  endpoint:
+    health:
+      show-details: always
+  endpoints:
+    web:
+      exposure:
+        include: health,info
