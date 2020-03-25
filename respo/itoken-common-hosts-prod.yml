@@ -1,0 +1,3 @@
+# 通用的主机地址
+hosts:
+  sso: http://localhost:8503/login
